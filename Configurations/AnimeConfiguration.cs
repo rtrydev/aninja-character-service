@@ -12,18 +12,15 @@ public class AnimeConfiguration : IEntityTypeConfiguration<Anime>
             .HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnType("int")
             .HasColumnName("id")
             .ValueGeneratedOnAdd();
 
         builder.Property(x => x.ExternalId)
             .HasColumnName("external_id")
-            .HasColumnType("int")
             .IsRequired();
 
         builder.Property(x => x.TranslatedTitle)
             .HasColumnName("translated_title")
-            .HasColumnType("string")
             .IsRequired(false);
         
         
