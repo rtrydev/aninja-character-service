@@ -1,3 +1,4 @@
+using aninja_character_service.Configurations;
 using aninja_character_service.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,8 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new AnimeConfiguration());
+        modelBuilder.ApplyConfiguration(new CharacterConfiguration());
+        modelBuilder.ApplyConfiguration(new AnimeCharacterConfiguration());
     }
 }
