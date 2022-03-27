@@ -10,5 +10,6 @@ public class CharacterProfile : Profile
     {
         CreateMap<Character, CharacterDetailsDto>();
         CreateMap<CharacterWriteDto, Character>();
+        CreateMap<Character, CharacterDto>();
     }
 }
