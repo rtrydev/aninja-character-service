@@ -46,5 +46,24 @@ public class CharacterController : ControllerBase
         var result = await _mediator.Send(request);
         return Ok(_mapper.Map<CharacterDetailsDto>(result));
     }
+
+    [HttpPut("character")]
+    public async Task<ActionResult<CharacterDetailsDto>> UpdateCharacter(CharacterUpdateDto character)
+    {
+        var request = new UpdateCharacterCommand()
+        {
+            Id = character.Id,
+            Description = character.Description,
+            Gender = Enum.Parse<Gender>(character.Gender),
+            ImageUrl = character.ImageUrl,
+            OriginalName = character.OriginalName,
+            TranslatedName = character.TranslatedName,
+            VoiceActor = character.VoiceActor,
+            VoiceActorImageUrl = character.VoiceActorImageUrl
+        };
+        var result = await _mediator.Send(request);
+        if (result is null) return NotFound();
+        return Ok(_mapper.Map<CharacterDetailsDto>(result));
+    }
     
 }
