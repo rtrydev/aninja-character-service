@@ -1,6 +1,7 @@
 using aninja_character_service.AsyncDataServices;
 using aninja_character_service.Data;
 using aninja_character_service.Repositories;
+using aninja_character_service.SyncDataServices;
 using aninja_tags_service.EventProcessing;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
+builder.Services.AddScoped<IAnimeDataClient, AnimeDataClient>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
