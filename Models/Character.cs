@@ -17,5 +17,5 @@ public class Character
     public string VoiceActor { get; set; } = "";
     public string? VoiceActorImageUrl { get; set; }
     public string Description { get; set; } = "";
-    public IEnumerable<AnimeCharacter>? Animes { get; set; }
+    public ICollection<AnimeCharacter>? Animes { get; set; }
 }
