@@ -48,7 +48,7 @@ public class CharacterRepository : ICharacterRepository
 
     public async Task<Anime?> GetAnimeById(int animeId)
     {
-        var anime = await _dbContext.Animes.FirstOrDefaultAsync(x => x.ExternalId == animeId);
+        var anime = await _dbContext.Animes.Include(x => x.Characters).FirstOrDefaultAsync(x => x.ExternalId == animeId);
         return anime;
     }
 
