@@ -26,6 +26,7 @@ public class UpdateCharacterCommandHandler : IRequestHandler<UpdateCharacterComm
         character.VoiceActorImageUrl = request.VoiceActorImageUrl;
 
         var result = await _characterRepository.UpdateCharacter(character);
+        await _characterRepository.SaveChangesAsync();
         return result;
     }
 }
