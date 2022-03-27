@@ -36,5 +36,6 @@ public class DbPrep
                 await ratingRepository.AddAnime(a);
             }
         }
+        await ratingRepository.SaveChangesAsync();
     }
 }
